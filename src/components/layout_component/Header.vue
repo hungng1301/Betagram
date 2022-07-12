@@ -126,6 +126,7 @@ export default class HeaderBar extends Vue {
 
 @font-face {
   font-family: billabong;
-  src: url(C:\Users\hungnd\Documents\GitHub\Betagram\beta-pro\src\assets\FontsFree-Net-Billabong.ttf);
+  src: url(@/assets/FontsFree-Net-Billabong.ttf);
+  /* src: url(C:\Users\hungnd\Documents\GitHub\Betagram\Betagram\src\assets\FontsFree-Net-Billabong.ttf); */
 }
 </style>

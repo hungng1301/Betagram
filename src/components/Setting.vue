@@ -31,7 +31,8 @@
       <v-col>
         <v-form>
           <v-card>
-            <v-card-text>
+            <!-- <v-card-text> -->
+            <v-card-actions class="d-block mr-12">
               <v-row>
                 <v-col cols="4" class="text-field-title">
                   <v-img
@@ -45,8 +46,7 @@
                   <v-card-subtitle><a>Change profile photo</a></v-card-subtitle>
                 </v-col>
               </v-row>
-            </v-card-text>
-            <v-card-actions class="d-block mr-12">
+            <!-- </v-card-text> -->
               <v-row>
                 <v-col cols="4" class="text-field-title">
                   <v-card-title>Name</v-card-title>
@@ -165,9 +165,5 @@ export default class EditAccount extends Vue {
 
 .text-field-title .v-card__title {
   font-size: 15px;
-}
-
-.v-input__slot {
-  min-height: 0px;
 }
 </style>
