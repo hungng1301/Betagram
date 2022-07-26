@@ -39,14 +39,28 @@
                 </v-list-item>
                 <v-img src="https://picsum.photos/510/300?random" height="400" />
                 <v-card-actions>
-                  <v-btn icon v-for="i in icons" :key="i.icon">
+                  <v-btn icon @click="clickOnLike">                      
                     <Icon
-                      :icon="i.icon"
-                      :horizontalFlip="i.flip"
+                      :icon="like ? 'openmoji:white-heart' : 'openmoji:red-heart'"
                       width="30"
                       height="30"
                     />
                   </v-btn>
+                  <v-btn icon>                      
+                    <Icon
+                      icon="fe:comment-o"
+                      horizontalFlip="true"
+                      width="30"
+                      height="30"
+                    />
+                  </v-btn>
+                  <v-btn icon>                      
+                    <Icon
+                      icon="prime:send"
+                      width="30"
+                      height="30"
+                    />
+                  </v-btn>             
                   <v-spacer />
                   <v-btn icon>
                     <Icon
@@ -105,12 +119,13 @@ import {home_view_model} from "../view-model/home-content-view-model"
 export default class HomeContent extends Vue {
   user: User[] = user_store.UserList
   user1: User[] = []
+  like = false
 
-  icons: any[] = [
-    { icon: "ci:heart-outline", flip: false },
-    { icon: "fe:comment-o", flip: true },
-    { icon: "prime:send", flip: false },
-  ];
+  // icons: any[] = [
+  //   { icon: "cil:heart", likeicon: "fxemoji:beating-heart" ,flip: false },
+  //   { icon: "fe:comment-o", flip: true },
+  //   { icon: "prime:send", flip: false },
+  // ];
 
   created() {
   this.getOtherUser()  
@@ -118,6 +133,10 @@ export default class HomeContent extends Vue {
 
   getOtherUser() {
     this.user1 = home_view_model.getOtherUser()
+  }
+
+  clickOnLike() {
+    return this.like = !this.like
   }
 }
 </script>

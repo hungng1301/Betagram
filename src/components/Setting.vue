@@ -1,5 +1,5 @@
 <template>
-  <v-container style="max-width: 900px; margin-top: 15px">
+  <v-container class="container">
     <v-row no-gutters>
       <v-col cols="3">
         <v-card>
@@ -52,7 +52,7 @@
                   <v-card-title>Name</v-card-title>
                 </v-col>
                 <v-col>
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                   <v-subheader
                     >Help people discover your account by using the name you're
                     known by: either your full name, nickname, or business
@@ -69,7 +69,7 @@
                   <v-card-title>UserName</v-card-title>
                 </v-col>
                 <v-col>
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                   <v-subheader>
                     In most cases, you'll be able to change your username back
                     to 'user name' for another 14 days.</v-subheader
@@ -81,7 +81,7 @@
                   <v-card-title>Websites</v-card-title>
                 </v-col>
                 <v-col>
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                 </v-col>
               </v-row>
               <v-row>
@@ -103,7 +103,7 @@
                   <v-card-title>Email</v-card-title>
                 </v-col>
                 <v-col>             
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                 </v-col>
               </v-row>
               <v-row>
@@ -111,7 +111,7 @@
                   <v-card-title>Phone Number</v-card-title>
                 </v-col>
                 <v-col>
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                 </v-col>
               </v-row>
               <v-row>
@@ -119,7 +119,7 @@
                   <v-card-title>Gender</v-card-title>
                 </v-col>
                 <v-col>
-                  <v-text-field outlined hide-details></v-text-field>
+                  <v-text-field outlined hide-details dense></v-text-field>
                 </v-col>
               </v-row>
             </v-card-actions>
@@ -151,10 +151,19 @@ export default class EditAccount extends Vue {
 </script>
 
 <style scoped>
+.container {
+  max-width: 900px;
+  margin-top: 15px
+}
+
 .v-tab {
   justify-content: start;
   text-transform: capitalize;
   padding: 20px;
+}
+
+.v-subheader {
+  margin-top: 10px;
 }
 
 .text-field-title {

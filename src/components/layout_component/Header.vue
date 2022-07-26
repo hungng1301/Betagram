@@ -26,6 +26,18 @@
             </v-btn>
           </router-link>
 
+          <v-btn icon>
+            <create-post />
+          </v-btn>
+
+          <v-btn icon>
+            <Icon icon="typcn:compass" width="30" height="30" />
+          </v-btn>
+
+          <v-btn icon>
+            <Icon icon="ci:heart-outline" width="30" height="30" />
+          </v-btn>
+
           <v-menu bottom left offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn icon v-bind="attrs" v-on="on">
@@ -68,19 +80,21 @@ import { Vue, Component } from "vue-property-decorator";
 import { Icon } from "@iconify/vue2";
 import { home_view_model } from "@/view-model/home-content-view-model";
 import { login_view_model } from "@/view-model/login-view-model";
+import CreatePost from "@/components/CreatePost.vue";
 
 @Component({
   components: {
     Icon,
+    CreatePost,
   },
 })
 export default class HeaderBar extends Vue {
   items: any[] = [
     { name: "Home", path: "home-content", icons: "fluent:home-16-regular" },
     { name: "Inbox", path: "inbox", icons: "ri:messenger-line" },
-    { name: "Profile", path: "", icons: "jam:plus-rectangle" },
-    { name: "Updates", path: "", icons: "typcn:compass" },
-    { name: "Like", path: "", icons: "ci:heart-outline" },
+    // { name: "Create", path: "", icons: "jam:plus-rectangle" },
+    // { name: "Explore", path: "", icons: "typcn:compass" },
+    // { name: "Like", path: "", icons: "ci:heart-outline" },
   ];
 
   user_menu: any[] = [

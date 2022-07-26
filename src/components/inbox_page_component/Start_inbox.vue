@@ -7,7 +7,7 @@
   >
     <v-card class="right-content" flat>
       <v-img
-        class="img"
+        class="mx-auto"
         :src="require('/src/assets/send.png')"
         width="96"
         height="96"
@@ -34,10 +34,10 @@ export default class StartInbox extends Vue{}
 .right-content  {
   text-align: center;
 }
-
+/* 
 .right-content .img{
   margin: 0 140px;
-}
+} */
 
 .right-content .v-card__title{
   display: inline-block;

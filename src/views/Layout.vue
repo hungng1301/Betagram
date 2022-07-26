@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <header-bar />
+    <v-card>
+      <header-bar />
+    </v-card>
     <v-main class="grey lighten-5">
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
