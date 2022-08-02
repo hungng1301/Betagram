@@ -23,30 +23,37 @@
           </v-row>
         </v-container>
 
-        <v-container v-for="user in user1" :key="user.user_id">
+        <v-container v-for="post in getPost()" :key="post.id">
           <v-row>
             <v-col offset-md="6">
               <v-card width="500">
                 <v-list-item>
                   <v-list-item-avatar>
-                    <v-img :src="user.user_ava" alt="User" />
+                    <v-img :src="post.avatar" alt="User" />
                   </v-list-item-avatar>
-                  <v-list-item-title>{{ user.user_account_name }}</v-list-item-title>
+                  <v-list-item-title>{{
+                    post.author
+                  }}</v-list-item-title>
                   <v-spacer />
                   <v-btn icon>
                     <v-icon>mdi-dots-horizontal</v-icon>
                   </v-btn>
                 </v-list-item>
-                <v-img src="https://picsum.photos/510/300?random" height="400" />
+                <v-img
+                  :src="post.img"
+                  height="400"
+                />
                 <v-card-actions>
-                  <v-btn icon @click="clickOnLike">                      
+                  <v-btn icon @click="clickOnLike">
                     <Icon
-                      :icon="like ? 'openmoji:white-heart' : 'openmoji:red-heart'"
+                      :icon="
+                        like ? 'openmoji:white-heart' : 'openmoji:red-heart'
+                      "
                       width="30"
                       height="30"
                     />
                   </v-btn>
-                  <v-btn icon>                      
+                  <v-btn icon>
                     <Icon
                       icon="fe:comment-o"
                       horizontalFlip="true"
@@ -54,13 +61,9 @@
                       height="30"
                     />
                   </v-btn>
-                  <v-btn icon>                      
-                    <Icon
-                      icon="prime:send"
-                      width="30"
-                      height="30"
-                    />
-                  </v-btn>             
+                  <v-btn icon>
+                    <Icon icon="prime:send" width="30" height="30" />
+                  </v-btn>
                   <v-spacer />
                   <v-btn icon>
                     <Icon
@@ -72,10 +75,10 @@
                 </v-card-actions>
                 <v-card-text style="font-weight: bold">1,012 likes</v-card-text>
                 <v-card-text>
-                  <span style="font-weight: bold">{{user.user_account_name }}</span>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Pariatur tenetur veritatis placeat, molestiae impedit aut
-                  provident eum quo natus molestias?
+                  <span style="font-weight: bold">{{
+                    post.author
+                  }}</span>
+                  {{ post.content }}
                 </v-card-text>
                 <v-card-text class="post-time">2 minutes ago</v-card-text>
                 <v-divider />
@@ -83,8 +86,15 @@
                   <v-btn icon>
                     <Icon icon="octicon:smiley-24" width="30" height="30" />
                   </v-btn>
-                  <v-text-field placeholder="Add a comment" hide-details solo flat/>
-                  <v-btn text color="primary" style="text-transform: none">Post</v-btn>
+                  <v-text-field
+                    placeholder="Add a comment"
+                    hide-details
+                    solo
+                    flat
+                  />
+                  <v-btn text color="primary" style="text-transform: none"
+                    >Post</v-btn
+                  >
                 </v-card-actions>
               </v-card>
             </v-col>
@@ -106,8 +116,9 @@
 import { Vue, Component } from "vue-property-decorator";
 import { Icon } from "@iconify/vue2";
 import SiderBar from "../components/Sider.vue";
-import User, {user_store} from "../models/user";
-import {home_view_model} from "../view-model/home-content-view-model"
+import User, { user_store } from "../models/user";
+import Post from "@/models/post"
+import { home_view_model } from "../view-model/home-content-view-model";
 
 @Component({
   components: {
@@ -115,11 +126,10 @@ import {home_view_model} from "../view-model/home-content-view-model"
     Icon,
   },
 })
-
 export default class HomeContent extends Vue {
-  user: User[] = user_store.UserList
-  user1: User[] = []
-  like = false
+  // user: User[] = user_store.UserList;
+  user1: User[] = [];
+  like = false;
 
   // icons: any[] = [
   //   { icon: "cil:heart", likeicon: "fxemoji:beating-heart" ,flip: false },
@@ -128,15 +138,20 @@ export default class HomeContent extends Vue {
   // ];
 
   created() {
-  this.getOtherUser()  
+    this.getOtherUser();
+    this.getPost();
   }
 
   getOtherUser() {
-    this.user1 = home_view_model.getOtherUser()
+    this.user1 = home_view_model.getOtherUser();
+  }
+
+  getPost() {
+    return home_view_model.getPost();
   }
 
   clickOnLike() {
-    return this.like = !this.like
+    return (this.like = !this.like);
   }
 }
 </script>
