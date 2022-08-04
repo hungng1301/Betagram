@@ -38,9 +38,9 @@ export default class HomeContentModelView {
             })
             let author_name = ''
             let author_ava = ''
-            author.forEach((auhtor) => {
-                author_name = auhtor.name
-                author_ava = auhtor.ava    
+            author.forEach((a) => {
+                author_name = a.name
+                author_ava = a.ava    
             })
 
             return {
@@ -48,11 +48,22 @@ export default class HomeContentModelView {
                 author: author_name,
                 avatar: author_ava,
                 img: post.post_img,
-                content: post.post_content
+                content: post.post_content,
+                likes: post.post_likes
             }
         })
         return post
     }
+
+    // likePost(post_id: any) {
+    //     const liked = this.post_list.filter((e) => {
+    //         if(e.post_id == post_id) {
+    //             return(e.isLike = !e.isLike)
+    //         }
+    //     })
+    //     console.log(liked)
+    //     return liked
+    // }
 }
 
 export const home_view_model = new HomeContentModelView

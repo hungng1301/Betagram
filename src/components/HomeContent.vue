@@ -31,23 +31,18 @@
                   <v-list-item-avatar>
                     <v-img :src="post.avatar" alt="User" />
                   </v-list-item-avatar>
-                  <v-list-item-title>{{
-                    post.author
-                  }}</v-list-item-title>
+                  <v-list-item-title>{{ post.author }}</v-list-item-title>
                   <v-spacer />
                   <v-btn icon>
                     <v-icon>mdi-dots-horizontal</v-icon>
                   </v-btn>
                 </v-list-item>
-                <v-img
-                  :src="post.img"
-                  height="400"
-                />
+                <v-img :src="post.img" height="400" />
                 <v-card-actions>
                   <v-btn icon @click="clickOnLike">
                     <Icon
                       :icon="
-                        like ? 'openmoji:white-heart' : 'openmoji:red-heart'
+                        like ? 'openmoji:red-heart' : 'openmoji:white-heart'
                       "
                       width="30"
                       height="30"
@@ -75,9 +70,7 @@
                 </v-card-actions>
                 <v-card-text style="font-weight: bold">1,012 likes</v-card-text>
                 <v-card-text>
-                  <span style="font-weight: bold">{{
-                    post.author
-                  }}</span>
+                  <span style="font-weight: bold">{{ post.author }}</span>
                   {{ post.content }}
                 </v-card-text>
                 <v-card-text class="post-time">2 minutes ago</v-card-text>
@@ -117,7 +110,7 @@ import { Vue, Component } from "vue-property-decorator";
 import { Icon } from "@iconify/vue2";
 import SiderBar from "../components/Sider.vue";
 import User, { user_store } from "../models/user";
-import Post from "@/models/post"
+import Post from "@/models/post";
 import { home_view_model } from "../view-model/home-content-view-model";
 
 @Component({
@@ -151,7 +144,9 @@ export default class HomeContent extends Vue {
   }
 
   clickOnLike() {
-    return (this.like = !this.like);
+    return this.like = !this.like
+    // this.like = home_view_model.likePost(id)
+    // return home_view_model.likePost(id)
   }
 }
 </script>
